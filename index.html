@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Календарь</title>
+  
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-bg">
+    <h1 class="title">Календарь</h1>
+
+    <div class="window">
+      <div class="traffic" aria-hidden="true">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="year-nav">
+          <button class="year-btn" data-action="prevYear" aria-label="Предыдущий год">‹</button>
+          <div id="yearLabel">2024</div>
+          <button class="year-btn" data-action="nextYear" aria-label="Следующий год">›</button>
+        </div>
+
+        <ul class="months" id="monthsList" aria-label="Список месяцев">
+          <!-- Месяцы рендерятся JS -->
+        </ul>
+      </aside>
+
+      <!-- Calendar center -->
+      <section class="calendar">
+        <div class="month-name" id="monthName">ИЮЛЬ</div>
+        <div class="weekdays" id="weekdays"></div>
+        <div class="days" id="daysGrid" role="grid" aria-labelledby="monthName"></div>
+      </section>
+
+      <!-- Info panel -->
+      <aside class="info">
+        <div class="info-title" id="selectedDateLabel">ИЮЛЬ 16, 2024</div>
+        <div id="eventsPanel">
+          <div class="info-card">
+            <div class="info-card-title">На сегодня событий не запланировано</div>
+            <div class="muted"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  
+  <script src="js/script.js"></script>
+</body>
+</html>

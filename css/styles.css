@@ -1,0 +1,210 @@
+    * { box-sizing: border-box; }
+    :root{
+      --bg1:#0d547b;
+      --bg2:#0d5f8c;
+      --panel:#0f5f88;
+      --panel-dark:#1b5f86;
+      --card:#226b92;
+      --white:#ffffff;
+      --muted:#bcd3df;
+      --accent:#164b6b;
+      --accent-strong:#0f3c56;
+      --blue:#195f86;
+      --blue-deep:#0e4c6c;
+      --dot-red:#ff5f57;
+      --dot-yellow:#febc2e;
+      --dot-green:#28c840;
+    }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--white);
+      background: radial-gradient(1200px 600px at 50% -200px, #1f77a8 0%, #0c4c6d 40%, #093e58 100%);
+    }
+
+    .app-bg{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 48px;
+    }
+
+    .title{
+      margin: 0 0 16px;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .window{
+      width: 1040px;
+      background: #0f5f88;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      position: relative;
+      display: grid;
+      grid-template-columns: 220px 1fr 360px;
+      overflow: hidden;
+    }
+
+    .traffic{
+      position: absolute;
+      top: 10px; left: 14px;
+      display:flex; gap:8px;
+    }
+    .dot{ width:12px; height:12px; border-radius:50%; display:inline-block; }
+    .dot.red{ background: var(--dot-red); }
+    .dot.yellow{ background: var(--dot-yellow); }
+    .dot.green{ background: var(--dot-green); }
+
+    .sidebar{
+      background: #124f71;
+      padding: 56px 0 12px;
+      display:flex; flex-direction:column;
+      gap: 8px;
+    }
+
+    .year-nav{
+      display:flex; align-items:center; justify-content:center;
+      gap: 8px;
+      color: #d7e7f0;
+      font-size: 24px;
+      font-weight: 700;
+      user-select: none;
+    }
+    .year-btn{
+      background: transparent;
+      border: none;
+      color: #d7e7f0;
+      font-size: 22px;
+      width: 28px; height: 28px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .year-btn:focus{ outline:none; box-shadow: 0 0 0 2px rgba(255,255,255,.25); }
+
+    .months{
+      list-style:none; margin: 12px 0 0; padding:0;
+      overflow: auto;
+      max-height: calc(100vh - 180px);
+    }
+    .months li{
+      padding: 10px 24px;
+      margin: 4px 0;
+      color: #d0e2ec;
+      border-radius: 22px 0 0 22px;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+    .months li:hover{ background:#0e4c6c; }
+    
+    .months li.current-year-month{
+      background:#105A7F;
+      color:#fff;
+    }
+	.months li.active{
+      background:#0f3c56;
+      color:#fff;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+    }
+
+    .calendar{
+      background:#0f5f88;
+      padding: 56px 24px 24px;
+    }
+
+    .month-name{
+      text-align:center;
+      font-size:28px;
+      font-weight:800;
+      margin-bottom: 16px;
+      letter-spacing:1px;
+      text-transform: uppercase;
+    }
+
+    .weekdays{
+      display:grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align:center;
+      color:#cde0ea;
+      font-weight:600;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .days{
+      display:grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      align-items:center;
+    }
+    .day{
+      height: 44px;
+      display:flex; align-items:center; justify-content:center;
+      border-radius: 9px;
+      color:#fff;
+      font-weight:600;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .06s ease, background .2s ease, border-color .15s ease;
+      user-select: none;
+    }
+    .day:hover{ background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.08); }
+    .day.empty{ background: transparent; pointer-events: none; border: none; }
+    .day.weekend{ color:#ffb8b8; }
+    .day.special{ background: #f9d792; color:#2b2b2b; }
+    .day.today{
+      background:#0f3c56;
+      color:#fff;
+      border-radius: 9px;
+      box-shadow: inset 0 -4px 0 rgba(255,255,255,0.08);
+    }
+    .day.picked{
+      background:#b9d9ea;
+      color:#1b2b36;
+      border-radius: 12px;
+    }
+
+    .info{
+      background:#16597e;
+      padding: 56px 24px;
+      border-left: 2px solid rgba(255,255,255,0.08);
+    }
+
+    .info-title{
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .info-card{
+      background:#1e6a92;
+      border-radius: 6px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .info-card + .info-card{ margin-top: 12px; }
+    .info-card-title{
+      color:#d9ebf4;
+      font-weight:600;
+      margin-bottom: 6px;
+    }
+    .muted{ color: var(--muted); font-size: 14px; }
+
+    @media (max-width: 1100px){
+      .window{ width: 100%; }
+    }
+    @media (max-width: 900px){
+      .window{ grid-template-columns: 1fr; }
+      .calendar{ order: 1; }
+      .sidebar{ order: 2; }
+      .info{ order: 3; }
+      .months{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 8px; padding: 0 8px; }
+      .months li{ border-radius: 10px; text-align: center; padding: 10px 8px; }
+      .info{ border-left: none; border-top: 2px solid rgba(255,255,255,0.08); }
+    }
